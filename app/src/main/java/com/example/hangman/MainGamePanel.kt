@@ -107,7 +107,7 @@ class MainGamePanel : Fragment() {
                 if (gameViewModel.wrongGuesses == 7){
                     gameEndText.text = "Better luck next time!"
                     gameViewModel.endText = "Better luck next time!"
-//                    gameViewModel.gameEnded = true
+                    gameViewModel.gameEnded = true
                     setFragmentResult("MainGameFragment", bundleOf("data" to "DisableAll"))
                 }
                 else if (firstCharacter.text!= "_" && secondCharacter.text!= "_"
@@ -115,7 +115,7 @@ class MainGamePanel : Fragment() {
                     && fifthCharacter.text!= "_" && sixthCharacter.text!= "_"){
                         gameEndText.text = "Congratulations! You Won!"
                         gameViewModel.endText = "Congratulations! You Won!"
-//                    gameViewModel.gameEnded = true
+                    gameViewModel.gameEnded = true
                     setFragmentResult("MainGameFragment", bundleOf("data" to "DisableAll"))
                 }
             }
@@ -127,12 +127,12 @@ class MainGamePanel : Fragment() {
                     bundleOf("data" to gameViewModel.guessedCharacters)
                 )
             }
-//            if(gameViewModel.gameEnded) {
-//                setFragmentResult(
-//                    "MainGameFragment",
-//                    bundleOf("data" to "DisableAll")
-//                )
-//            }
+            if(gameViewModel.gameEnded) {
+                setFragmentResult(
+                    "MainGameFragment",
+                    bundleOf("data" to "DisableAll")
+                )
+            }
             hangmanImage.setImageResource(gameViewModel.hangmanImage)
             firstCharacter.text = gameViewModel.firstCharacter
             secondCharacter.text = gameViewModel.secondCharacter
@@ -161,7 +161,7 @@ class MainGamePanel : Fragment() {
                 gameViewModel.sixthCharacter = "_"
                 gameViewModel.hangmanImage = R.drawable.game0
                 gameViewModel.gameWord = gameViewModel.getNewGameWord()
-//                gameViewModel.gameEnded = false
+                gameViewModel.gameEnded = false
                 setFragmentResult("MainGameFragment", bundleOf("data" to "EnableAll"))
             }
         }

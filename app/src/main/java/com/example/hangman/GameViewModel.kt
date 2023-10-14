@@ -69,8 +69,8 @@ class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
         get() = savedStateHandle[GAME_WORD_KEY] ?: ""
         set(value) = savedStateHandle.set(GAME_WORD_KEY, value)
 
-//    var gameEnded: Boolean
-//        get() = savedStateHandle[GAME_ENDED_KEY] ?: false
-//        set(value) = savedStateHandle.set(GAME_ENDED_KEY, value)
+    var gameEnded: Boolean
+        get() = savedStateHandle[GAME_ENDED_KEY] ?: false
+        set(value) = savedStateHandle.set(GAME_ENDED_KEY, value)
 
 }
