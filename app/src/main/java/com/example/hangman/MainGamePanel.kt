@@ -60,14 +60,13 @@ class MainGamePanel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setFragmentResultListener("ChooseLetterFragment") { key, bundle ->
+        setFragmentResultListener("HF-MGF"){ key, bundle ->
+            gameViewModel.hintCount = gameViewModel.hintCount+1
+        }
+        setFragmentResultListener("CLF-MGF") { key, bundle ->
             val result = bundle.getString("data").toString()
             gameViewModel.guessedCharacters += result
             binding.apply {
-                if(gameViewModel.gameWord == "") {
-                    gameViewModel.gameWord = gameViewModel.getNewGameWord()
-                }
-                println(gameViewModel.gameWord)
                 val indicesList = getIndices(gameViewModel.gameWord, result)
                 if(indicesList.isEmpty()){
                     gameViewModel.wrongGuesses = gameViewModel.wrongGuesses + 1
@@ -108,31 +107,35 @@ class MainGamePanel : Fragment() {
                     gameEndText.text = "Better luck next time!"
                     gameViewModel.endText = "Better luck next time!"
                     gameViewModel.gameEnded = true
-                    setFragmentResult("MainGameFragment", bundleOf("data" to "DisableAll"))
+                    setFragmentResult("MGF-CLF", bundleOf("data" to "DisableAll"))
                 }
                 else if (firstCharacter.text!= "_" && secondCharacter.text!= "_"
                     && thirdCharacter.text!= "_" && fourthCharacter.text!= "_"
                     && fifthCharacter.text!= "_" && sixthCharacter.text!= "_"){
-                        gameEndText.text = "Congratulations! You Won!"
-                        gameViewModel.endText = "Congratulations! You Won!"
+                        gameEndText.text = "You Won!"
+                        gameViewModel.endText = "You Won!"
                     gameViewModel.gameEnded = true
-                    setFragmentResult("MainGameFragment", bundleOf("data" to "DisableAll"))
+                    setFragmentResult("MGF-CLF", bundleOf("data" to "DisableAll"))
                 }
             }
         }
         binding.apply {
+            if(gameViewModel.gameWord == "") {
+                gameViewModel.gameWord = gameViewModel.getNewGameWord()
+            }
             if(gameViewModel.guessedCharacters!="") {
                 setFragmentResult(
-                    "MainGameFragment",
+                    "MGF-CLF",
                     bundleOf("data" to gameViewModel.guessedCharacters)
                 )
             }
             if(gameViewModel.gameEnded) {
                 setFragmentResult(
-                    "MainGameFragment",
+                    "MGF-CLF",
                     bundleOf("data" to "DisableAll")
                 )
             }
+            setFragmentResult("MGF-HF", bundleOf("hint" to gameViewModel.getHint(), "hint_count" to gameViewModel.hintCount.toString()))
             hangmanImage.setImageResource(gameViewModel.hangmanImage)
             firstCharacter.text = gameViewModel.firstCharacter
             secondCharacter.text = gameViewModel.secondCharacter
@@ -162,7 +165,8 @@ class MainGamePanel : Fragment() {
                 gameViewModel.hangmanImage = R.drawable.game0
                 gameViewModel.gameWord = gameViewModel.getNewGameWord()
                 gameViewModel.gameEnded = false
-                setFragmentResult("MainGameFragment", bundleOf("data" to "EnableAll"))
+                gameViewModel.hintCount = 0
+                setFragmentResult("MGF-CLF", bundleOf("data" to "EnableAll"))
             }
         }
     }

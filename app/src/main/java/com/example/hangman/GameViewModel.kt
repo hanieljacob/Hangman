@@ -17,12 +17,22 @@ const val END_TEXT_KEY = "END_TEXT_KEY"
 const val GUESSED_CHARACTERS_KEY= "GUESSED_CHARACTERS_KEY"
 const val GAME_WORD_KEY = "GAME_WORD_KEY"
 const val GAME_ENDED_KEY = "GAME_ENDED_KEY"
+const val HINT_COUNT_KEY = "HINT_COUNT_KEY"
+const val WORD_INDEX_KEY = "WORD_INDEX_KEY"
 
 class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+
+    private var words: List<String> = listOf("BANANA","RABBIT","MEXICO")
+
+    private var hints: List<String> = listOf("FRUIT","ANIMAL","COUNTRY")
     fun getNewGameWord(): String {
-        val words = listOf("BANANA","RABBIT","MEXICO")
-        val randomIndex = Random.nextInt(words.size);
+        val randomIndex = Random.nextInt(words.size)
+        wordIndex = randomIndex
         return words[randomIndex]
+    }
+
+    fun getHint(): String{
+        return hints[wordIndex]
     }
 
     var firstCharacter: String
@@ -72,5 +82,13 @@ class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
     var gameEnded: Boolean
         get() = savedStateHandle[GAME_ENDED_KEY] ?: false
         set(value) = savedStateHandle.set(GAME_ENDED_KEY, value)
+
+    var hintCount: Int
+        get() = savedStateHandle[HINT_COUNT_KEY] ?: 0
+        set(value) = savedStateHandle.set(HINT_COUNT_KEY, value)
+
+    var wordIndex: Int
+        get() = savedStateHandle[WORD_INDEX_KEY] ?: 0
+        set(value) = savedStateHandle.set(WORD_INDEX_KEY, value)
 
 }

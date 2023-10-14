@@ -27,7 +27,7 @@ class ChooseLetterPanel : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setFragmentResultListener("MainGameFragment") { key, bundle ->
+        setFragmentResultListener("MGF-CLF") { key, bundle ->
             val result = bundle.getString("data").toString()
             if (result == "EnableAll") {
                 updateAllButtonsState(true)
@@ -74,108 +74,108 @@ class ChooseLetterPanel : Fragment() {
         binding.apply {
             aButton.setOnClickListener {
                 aButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "A"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "A"))
             }
             bButton.setOnClickListener {
                 bButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "B"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "B"))
             }
             cButton.setOnClickListener {
                 cButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "C"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "C"))
             }
             dButton.setOnClickListener {
                 dButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "D"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "D"))
             }
             eButton.setOnClickListener {
                 eButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "E"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "E"))
             }
             fButton.setOnClickListener {
                 fButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "F"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "F"))
             }
             gButton.setOnClickListener {
                 gButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "G"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "G"))
             }
             hButton.setOnClickListener {
                 hButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "H"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "H"))
             }
             iButton.setOnClickListener {
                 iButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "I"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "I"))
             }
             jButton.setOnClickListener {
                 jButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "J"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "J"))
             }
             kButton.setOnClickListener {
                 kButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "K"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "K"))
 
             }
             lButton.setOnClickListener {
                 lButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "L"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "L"))
             }
             mButton.setOnClickListener {
                 mButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "M"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "M"))
             }
             nButton.setOnClickListener {
                 nButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "N"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "N"))
             }
             oButton.setOnClickListener {
                 oButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "O"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "O"))
             }
             pButton.setOnClickListener {
                 pButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "P"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "P"))
             }
             qButton.setOnClickListener {
                 qButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "Q"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "Q"))
             }
             rButton.setOnClickListener {
                 rButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "R"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "R"))
             }
             sButton.setOnClickListener {
                 sButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "S"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "S"))
             }
             tButton.setOnClickListener {
                 tButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "T"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "T"))
             }
             uButton.setOnClickListener {
                 uButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "U"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "U"))
             }
             vButton.setOnClickListener {
                 vButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "V"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "V"))
             }
             wButton.setOnClickListener {
                 wButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "W"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "W"))
             }
             xButton.setOnClickListener {
                 xButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "X"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "X"))
             }
             yButton.setOnClickListener {
                 yButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "Y"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "Y"))
             }
             zButton.setOnClickListener {
                 zButton.isEnabled = false
-                setFragmentResult("ChooseLetterFragment", bundleOf("data" to "Z"))
+                setFragmentResult("CLF-MGF", bundleOf("data" to "Z"))
             }
 
         }
