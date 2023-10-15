@@ -25,18 +25,22 @@ class HintPanel: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setFragmentResultListener("MGF-HF") { key, bundle ->
+        setFragmentResultListener("MGF-HF-1") { key, bundle ->
             val hint = bundle.getString("hint").toString()
-            val hintCount = bundle.getString("hint_count").toString().toInt()
-            println(hintCount)
             binding.apply {
+                hintTextView?.text = hint
                 hintButton?.setOnClickListener() {
-                    setFragmentResult("HF-MGF", bundleOf("hintCount" to "incrementCount"))
-                    if (hintCount == 0) {
-                        hintTextView?.text = hint
-                    }
+                    setFragmentResult("HF-MGF-1", bundleOf("hintCount" to "incrementCount"))
                 }
             }
         }
+
+        setFragmentResultListener("MGF-HF-2") { key, bundle ->
+            val hint = bundle.getString("hint").toString()
+            binding.apply{
+                hintTextView?.text = hint
+            }
+        }
+
     }
 }
