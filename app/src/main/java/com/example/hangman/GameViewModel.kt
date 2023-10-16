@@ -23,7 +23,7 @@ const val HINT_TEXT_KEY = "HINT_TEXT_KEY"
 
 class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    private var words: List<String> = listOf("BANANA","RABBIT","MEXICO","BOXING","CARROT")
+    var words: List<String> = listOf("BANANA","RABBIT","MEXICO","BOXING","CARROT")
 
     private var hints: List<String> = listOf("FRUIT","ANIMAL","COUNTRY","SPORT","VEGETABLE")
     fun getNewGameWord(): String {
